@@ -35,12 +35,7 @@ def cadastro(request):
             
             nome = form['nome_cadastro'].value()
             email = form['email'].value()
-            senha = form['senha'].value()
-            confirma_senha = form['confirma_senha'].value()
-            
-            if senha != confirma_senha:
-                messages.error(request,'Senhas não são iguais')
-                return redirect('cadastro')
+            senha = form['senha'].value()            
 
             if User.objects.filter(username = nome).exists():
                 messages.error(request,'Usuário já existente')
